@@ -2,11 +2,11 @@ import cv2
 import os
 
 #гиперпараметры:
-MODEL_TYPE = "faces.xml"
-DIR = 'images\\'
-FILE = 1
-SCL_FACTOR = 1.8
-NEIGHBORDS = 2
+MODEL_TYPE = "faces.xml" #Тип модели для распознавания.
+DIR = 'images\\' #Директория с фото для поиска объектов.
+FILE = 3 #Порядковый номер файла для распознования. Отсчёт начинается с 0.
+SCL_FACTOR = 1.8 #Теоретический размер искомых объектов.
+NEIGHBORDS = 2 #Примерное количество объектов, расположенных рядом.
 
 #----------------------------------------------
 
@@ -22,7 +22,7 @@ objects = model.detectMultiScale(image_gray, scaleFactor = SCL_FACTOR,
 
 for (x, y, w, h) in objects:
     cv2.rectangle(image, (x,y,), (x + w, y + h),
-                 (0,255,255), thickness = 2)
+                 (0,0,255), thickness = 3)
 
 cv2.imshow("Result", image)
 cv2.waitKey(0)
